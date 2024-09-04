@@ -6,7 +6,7 @@
 #define HTTPCLIENT_H
 
 #include <Arduino.h>
-#include <WiFi.h>
+#include <WiFiNINA.h>
 #include <cstring>
 
 // Request/Response library pulled in from https://github.com/Klaital/barebones-http
