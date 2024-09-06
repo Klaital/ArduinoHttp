@@ -18,7 +18,7 @@ void HttpClient::exec(HTTP::Request& req, HTTP::Response& resp) {
     http_buf[0] = '\0';
     sprintf(http_buf, "%s:%d", this->host, this->port);
     req.headers.set("Host", http_buf);
-    req.to_string(http_buf, 256);
+    req.to_string(http_buf, 1024);
     size_t len = this->net->println(http_buf);
     // Serial.print("Wrote " );
     // Serial.print(len);
@@ -27,7 +27,7 @@ void HttpClient::exec(HTTP::Request& req, HTTP::Response& resp) {
 
     // Read response
     http_buf[0] = '\0';
-    const size_t bytes_read = this->net->readBytes(http_buf, 256);
+    const size_t bytes_read = this->net->readBytes(http_buf, 1024);
     http_buf[bytes_read] = '\0';
     Serial.print("Read ");
     Serial.print(bytes_read);
